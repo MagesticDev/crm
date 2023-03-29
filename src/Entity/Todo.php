@@ -1,82 +1,53 @@
 <?php
-namespace Entity;
+
+namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @ORM\Entity
- * @ORM\Table(name="todo")
+ * @ORM\Entity(repositoryClass="App\Repository\TodoRepository")
  */
 class Todo
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Contact")
+     * @ORM\JoinColumn(nullable=false)
      */
-    protected $title;
+    private $contact;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
-    protected $description;
+    private $title;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     /**
      * @ORM\Column(type="datetime")
      */
-    protected $created;
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $updated;
+    private $dueDate;
+
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $completed;
-    public function __construct()
-    {
-        $this->created = new \DateTime();
-        $this->updated = new \DateTime();
-        $this->completed = false;
-    }
-    public function getId()
+    private $completed;
+
+    // Getters and setters...
+
+    public function getId(): ?int
     {
         return $this->id;
     }
-    public function getTitle()
-    {
-        return $this->title;
-    }
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-    public function getCreated()
-    {
-        return $this->created;
-    }
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-    }
-    public function getCompleted()
-    {
-        return $this->completed;
-    }
-    public function setCompleted($completed)
-    {
-        $this->completed = $completed;
-    }
+
+    // Add other getters and setters for the remaining properties
 }

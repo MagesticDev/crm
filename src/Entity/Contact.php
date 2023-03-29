@@ -1,117 +1,42 @@
 <?php
-namespace Entity;
+
+namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @ORM\Entity
- * @ORM\Table(name="contact")
+ * @ORM\Entity(repositoryClass="App\Repository\ContactRepository")
  */
 class Contact
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
-    protected $id;
+    private $id;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
-    protected $name;
+    private $firstName;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
-    protected $email;
+    private $lastName;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255)
      */
-    protected $subject;
+    private $email;
+
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    protected $message;
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $date;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $read;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $deleted;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $archived;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $spam;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $important;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $starred;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $sent;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $draft;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $trash;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $inbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $outbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $sentbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $draftbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $trashbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $inboxbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $outboxbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $sentboxbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $draftboxbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $trashboxbox;
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $inboxboxbox;
-    
+    private $phone;
+
+    // other fields like company, type (B2B, B2C), status (lead, prospect, client, dead)...
+
+    // Getters and setters...
 }
